@@ -9,6 +9,7 @@ import {
 } from "@/components";
 import { cn } from "@/helpers/cn";
 import { NavbarProps } from "./types";
+import Image from "next/image";
 
 export const Navbar = ({ className, ...props }: NavbarProps) => {
   return (
@@ -20,10 +21,12 @@ export const Navbar = ({ className, ...props }: NavbarProps) => {
       {...props}
     >
       <div className="mt-2 flex items-center justify-center">
-        <img
+        <Image
           src="https://germanoricardi.com.br/wp-content/uploads/2020/04/Logomarca-Germano-Ricardi-Claro.png"
           alt="Germano Ricardi"
           className="w-auto h-10 p-2"
+          width={193}
+          height={24}
         />
       </div>
       <NavbarList className="flex-grow">
