@@ -7,3 +7,9 @@
     --color-slate-890: 24 30 50;
   }
 }
+
+@layer components {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+}
