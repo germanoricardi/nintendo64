@@ -6,7 +6,7 @@ CREATE TABLE "Article" (
     "excerpt" TEXT NOT NULL,
     "content" TEXT NOT NULL,
     "image" TEXT NOT NULL,
-    "publishedAt" TEXT NOT NULL,
+    "publishedAt" DATETIME NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL
 );
