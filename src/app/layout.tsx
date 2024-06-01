@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <body className={cn('bg-slate-890 text-slate-300', inter.className)}>
         <Navbar />
 
