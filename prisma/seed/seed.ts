@@ -8,7 +8,8 @@ const prisma = new PrismaClient()
 const isDev = process.env.NODE_ENV === 'development'
 
 async function main() {
-  console.log('DB Seed...')
+  console.log('Init DB Seed...')
+
   await seedArticles()
 }
 
@@ -32,14 +33,12 @@ async function seedArticles() {
         publishedAt: new Date(article.publish_date),
       }
     })
-    console.log("🚀 ~ seedArticles ~ record:", record.id, record.title)
   }
 }
 
 main()
 .then( async () => await prisma.$disconnect())
 .catch( async (e) => {
-  console.log({e});
   await prisma.$disconnect();
   process.exit(1);
 } )
