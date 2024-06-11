@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import ArticleService from "@/services/Articles";
-import { Pagination } from "@/components";
+import { PageWrapper, Pagination } from "@/components";
 
 export default async function Home({ searchParams }:{searchParams?: { page?: string, limit?: string }}) {
 
@@ -11,7 +11,7 @@ export default async function Home({ searchParams }:{searchParams?: { page?: str
   const articles = await ArticleService.getHomeArticles(currentPage, limit);
   const latestArticles = await ArticleService.getHomeLatestArticles();
 
-  return <div className="ml-72">
+  return <PageWrapper>
     <div className="w-full h-[35vh] bg-orange-400 flex-center">
       <h1>Germano</h1>
     </div>
@@ -80,5 +80,5 @@ export default async function Home({ searchParams }:{searchParams?: { page?: str
         <div className="col-span-4 bg-indigo-700 rounded-md flex-center">banner</div>
       </div>
     </div>
-  </div>;
+  </PageWrapper>;
 }
