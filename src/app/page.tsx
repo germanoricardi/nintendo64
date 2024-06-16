@@ -3,6 +3,7 @@ import Image from "next/image";
 import ArticleService from "@/services/Articles";
 import { Hero, PageWrapper, Pagination } from "@/components";
 import GamesService from "@/services/Games";
+import Link from "next/link";
 
 export default async function Home({ searchParams }:{searchParams?: { page?: string, limit?: string }}) {
 
@@ -26,18 +27,18 @@ export default async function Home({ searchParams }:{searchParams?: { page?: str
         {
           latestArticles.data.map(article => {
             return(
-              <div key={article.title} className="flex-center relative overflow-hidden">
+              <Link href={`/articles/${article.slug}`} key={article.title} className="flex-center relative overflow-hidden">
                 <div className="h-full w-full">
-                  <Image 
-                    className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                    src={`/assets/images/articles/${article.image}`}
-                    alt={article.title}
-                    width={600}
-                    height={400}
-                  />
+                    <Image 
+                      className="h-full w-full object-cover transition duration-500 hover:scale-105"
+                      src={`/assets/images/articles/${article.image}`}
+                      alt={article.title}
+                      width={600}
+                      height={400}
+                    />
                 </div>
-                  <p className="absolute bottom-0 pt-6 pb-2 px-2 bg-gradient-to-t from-slate-900 via-slate-800 to-transparent w-full">{article.title}</p>
-              </div>
+                <p className="absolute bottom-0 pt-6 pb-2 px-2 bg-gradient-to-t from-slate-900 via-slate-800 to-transparent w-full">{article.title}</p>
+              </Link>
             )
           })
         }
@@ -70,7 +71,7 @@ export default async function Home({ searchParams }:{searchParams?: { page?: str
                     <div className="w-full flex flex-col gap-2 pl-4">
                       <h2 className="text-2xl text-indigo-400 mb-4">{article.title}</h2>
                       <p className="flex-grow">{article.excerpt}</p>
-                      <button className="bg-slate-700 hover:bg-indigo-400/40 rounded-lg px-4 py-2 inline max-w-max">Ler mais</button>
+                      <Link href={`/articles/${article.slug}`} className="bg-slate-700 hover:bg-indigo-400/40 rounded-lg px-4 py-2 inline max-w-max">Ler mais</Link>
                     </div>
                   </div>
                   // </Item>
